@@ -1,7 +1,7 @@
 import React from "react";
 import PromoCard from "./PromoCard";
 
-const Promotion = () => {
+const Promotion = (props) => {
   const games = [
     {
       id: 1,
@@ -36,7 +36,7 @@ const Promotion = () => {
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
     },
     {
-      id: 4,
+      id: 5,
       titulo: "Red Dead Redemption 2",
       preco: 199.9,
       desconto: 40, // 40% off
@@ -44,7 +44,7 @@ const Promotion = () => {
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
     },
     {
-      id: 4,
+      id: 6,
       titulo: "Red Dead Redemption 2",
       preco: 199.9,
       desconto: 40, // 40% off
@@ -52,7 +52,7 @@ const Promotion = () => {
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
     },
     {
-      id: 4,
+      id: 7,
       titulo: "Red Dead Redemption 2",
       preco: 199.9,
       desconto: 40, // 40% off
@@ -63,7 +63,7 @@ const Promotion = () => {
 
   return (
     <div id="promotion" className="container w-75 my-5">
-      <h2 className="text-uppercase">Promoções</h2>
+      <h2 className="text-uppercase text-light">Promoções</h2>
       <div
         id="itensPromo"
         className="d-flex flex-wrap gap-4 justify-content-between"
