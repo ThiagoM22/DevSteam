@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
   background-color: #1b2838 !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff;
+  color: #fff !important;
 }
 
 .search-input,
@@ -15,15 +15,14 @@ body {
   color: #d7d7d7;
 }
 
-.promoCard{
-width: 280px;
-transition: transform 0.2s;
-background: linear-gradient(to bottom, #19587b, #2b87ae);
+.promoCard {
+  width: 280px;
+  transition: transform 0.2s;
+  background: linear-gradient(to bottom, #19587b, #2b87ae);
 }
 
-.promoCard:hover{
-    transform: scale(1.03);
-
+.promoCard:hover {
+  transform: scale(1.03);
 }
 
 .desconto {
@@ -33,4 +32,3 @@ background: linear-gradient(to bottom, #19587b, #2b87ae);
 .corValor {
   color: #beeb14 !important;
 }
-

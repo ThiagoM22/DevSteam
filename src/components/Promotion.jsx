@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import PromoCard from "./PromoCard";
 
 const Promotion = (props) => {
@@ -60,30 +60,34 @@ const Promotion = (props) => {
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
     },
   ];
+  const [sortedGames, setSortedGames] = useState([]);
+
+  // Embaralha os jogos apenas na primeira renderização
+  useEffect(() => {
+    const filteredGames = games.filter((jogo) => jogo.desconto > 0); // Filtra apenas jogos com desconto
+    const shuffledGames = filteredGames.sort(() => Math.random() - 0.5); // Embaralha os jogos
+    setSortedGames(shuffledGames.slice(0, 3)); // Seleciona os 3 primeiros jogos embaralhados
+  }, []);
 
   return (
-    <div id="promotion" className="container w-75 my-5">
-      <h2 className="text-uppercase text-light">Promoções</h2>
+    <div id="promotion" className="container w-75 my-4">
+      <h2 className="text-uppercase text-center text-md-start ms-md-5 ps-md-3 mb-4">
+        Promoções
+      </h2>
       <div
         id="itensPromo"
-        className="d-flex flex-wrap gap-4 justify-content-between"
+        className="d-flex flex-wrap gap-4 justify-content-around"
       >
-        {/* mapeando um array com react */}
-
-        {games
-          .filter((jogo) => jogo.desconto > 0) // Filtra apenas jogos com desconto maior que 0
-          .sort(()=> Math.random() -
-            0.5)
-          .slice(0, 3)
-          .map((jogo) => (
-            <PromoCard
-              key={jogo.id}
-              titulo={jogo.titulo}
-              preco={jogo.preco.toFixed(2)}
-              desconto={jogo.desconto}
-              imagem={jogo.imagem}
-            />
-          ))}
+        {sortedGames.map((jogo) => (
+          <PromoCard
+            key={jogo.id}
+            titulo={jogo.titulo}
+            preco={jogo.preco.toFixed(2)}
+            desconto={jogo.desconto}
+            imagem={jogo.imagem}
+            onAddCarrinho={() => props.onAddCarrinho(jogo)}
+          />
+        ))}
       </div>
     </div>
   );
